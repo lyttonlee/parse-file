@@ -1,0 +1,76 @@
+<!--
+ * @Author: lyttonlee lzr3278@163.com
+ * @Date: 2022-09-30 10:13:36
+ * @LastEditors: lyttonlee lzr3278@163.com
+ * @LastEditTime: 2022-09-30 16:13:03
+ * @FilePath: \ofd-lib\index.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+    <style>
+      .title {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .content {
+        margin: 20px 0;
+        background: rgba(51, 51, 51, 0.507);
+        color: rgb(192, 192, 192);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" id="input" />
+      <input type="file" id="ifile" />
+
+      <div id="files"></div>
+    </div>
+    <script type="module">
+      import { parseFile } from './dist/ofd.es.js';
+      const input = document.getElementById('input');
+      const fileBtn = document.getElementById('ifile');
+      const filesEl = document.getElementById('files');
+      let url = '';
+      let files;
+      input.addEventListener('blur', async (ev) => {
+        console.log(ev.target.value);
+        url = ev.target.value;
+        files = await parseFile(url);
+        console.log(files);
+        render(files);
+      });
+      fileBtn.addEventListener('change', async (ev) => {
+        const file = ev.target.files[0];
+        files = await parseFile(file);
+        console.log(files);
+        // filesEl.innerText = JSON.stringify(files);
+        render(files);
+      });
+
+      function render(files) {
+        if (typeof files !== 'string') {
+          Object.keys(files).forEach((key) => {
+            console.log(key);
+            let titleDiv = document.createElement('div');
+            titleDiv.innerText = key;
+            titleDiv.className = 'title';
+            let contentDiv = document.createElement('div');
+            contentDiv.innerText = files[key];
+            contentDiv.className = 'content';
+            filesEl.appendChild(titleDiv);
+            filesEl.appendChild(contentDiv);
+          });
+        } else {
+          filesEl.innerText = files;
+        }
+      }
+    </script>
+  </body>
+</html>
