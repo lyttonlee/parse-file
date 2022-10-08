@@ -1,8 +1,20 @@
 {
-  "name": "ofd-lib",
-  "private": true,
-  "version": "0.0.0",
+  "name": "parse-file",
+  "description": "一个用于解析文件内容的小工具",
+  "private": "false",
+  "version": "1.0.0",
   "type": "module",
+  "main": "./dist/parse-file.es.js",
+  "types": "./dist/parse-file.d.ts",
+  "license": "MIT",
+  "author": "lzr3278@163.com",
+  "homepage": "",
+  "keywords": [
+    "parse-file",
+    "xmind",
+    "doc",
+    "ofd"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
