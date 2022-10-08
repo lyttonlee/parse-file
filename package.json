@@ -1,7 +1,6 @@
 {
   "name": "parse-file",
   "description": "一个用于解析文件内容的小工具",
-  "private": "false",
   "version": "1.0.0",
   "type": "module",
   "main": "./dist/parse-file.es.js",
@@ -9,6 +8,10 @@
   "license": "MIT",
   "author": "lzr3278@163.com",
   "homepage": "",
+  "repository": "https://github.com/lyttonlee/parse-file",
+  "files": [
+    "./dist"
+  ],
   "keywords": [
     "parse-file",
     "xmind",
