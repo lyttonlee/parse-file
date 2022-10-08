@@ -1,7 +1,7 @@
 {
-  "name": "parse-file",
+  "name": "@lyttonlee/parse-file",
   "description": "一个用于解析文件内容的小工具",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "./dist/parse-file.es.js",
   "types": "./dist/parse-file.d.ts",
@@ -25,9 +25,7 @@
   },
   "devDependencies": {
     "typescript": "^4.6.4",
-    "vite": "^3.1.0"
-  },
-  "dependencies": {
+    "vite": "^3.1.0",
     "jszip": "^3.10.1",
     "jszip-utils": "^0.1.0"
   }
